@@ -1,4 +1,8 @@
 <template>
+  <div>
+    <div class="middle" :style="backgroundDiv">
+      <img>
+      <div class="table">
   <el-form ref="AccountFrom" :model="account" :rules="rules" label-position="left" label-width="0px"
            class="demo-ruleForm login-container">
     <h3 class="title">管理员登录</h3>
@@ -9,10 +13,18 @@
       <el-input type="password" v-model="account.pwd" auto-complete="off" placeholder="密码"></el-input>
     </el-form-item>
     <!--<el-checkbox v-model="checked" checked class="remember">记住密码</el-checkbox>-->
+    <el-form-item>
+      <el-radio v-model="radio" label="1">用户</el-radio>
+      <el-radio v-model="radio" label="2">管理员</el-radio>
+    </el-form-item>
     <el-form-item style="width:100%;">
-      <el-button type="primary" style="width:100%;" @click.native.prevent="handleLogin" :loading="loading">登录</el-button>
+      <el-button type="primary"  @click.native.prevent="handleLogin" :loading="loading">登录</el-button>
+      <el-button type="primary"  @click.native.prevent="handleRegister" :loading="loading">注册</el-button>
     </el-form-item>
   </el-form>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -36,7 +48,11 @@
             //{ validator: validaePass2 }
           ]
         },
-        checked: true
+        checked: true,
+        backgroundDiv: {
+          backgroundImage: 'url(' + require('../assets/images/img1.jpg') + ')'
+        },
+        radio: '1'
       };
     },
     methods: {
@@ -93,7 +109,7 @@
     background: -moz-linear-gradient(top, #ace, #00C1DE); /*火狐*/
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ace), to(#00C1DE)); /*谷歌*/
     background: -webkit-linear-gradient(top, #ace, #00C1DE); /*Safari5.1 Chrome 10+*/
-    background: -o-linear-gradient(top,#ace, #00C1DE); /*Opera 11.10+*/
+    background: -o-linear-gradient(top,#ace, #00C1DE);} /*Opera 11.10+*/
 
     .title {
       margin: 0px auto 40px auto;
@@ -103,5 +119,11 @@
     .remember {
       margin: 0px 0px 35px 0px;
     }
+  .middle {
+    background: no-repeat ;
+    height:200%;
+    width:100%;
+    overflow: hidden;
+    background-size:cover
   }
 </style>
