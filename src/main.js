@@ -7,7 +7,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/iconfont.css'
 import '@/assets/styles/main.scss'
+import Vue from 'Vue'
+import VueCookies from 'vue-cookies'
 
+Vue.use(VueCookies)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
